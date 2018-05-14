@@ -16,6 +16,6 @@ for x in MATERIALS:
     for y in shots:
         source = os.path.join(JOB_TREE, x, y, "_".join(["n", y[2:]]),
                               "live_action")
-        link_dir = os.path.join(DESTINATION, JOB_NAME, x, y, "nuke")
+        link_dir = os.path.join(DESTINATION, JOB_NAME, "_".join(x, y), "nuke")
         os.makedirs(link_dir)
         os.symlink(source, os.path.join(link_dir, "live_action"))
