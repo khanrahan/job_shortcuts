@@ -3,7 +3,15 @@
 import argparse
 import os
 
-JOB_TREE = "/jobs/ads/test_test_j1111111/"
+PARSER = argparse.ArgumentParser(description="""creates symlinks from nuke
+live_action folders in a specified job tree to a more Flame friendly
+format""")
+PARSER.add_argument("job_tree", help="""path of the job tree. for example, 
+        /jobs/ads/test_1234567/""")
+ARGS = PARSER.parse_args()
+print ARGS.job_tree
+
+JOB_TREE = ARGS.job_tree
 DESTINATION = "/Users/kieran/Python/job_shortcuts"
 
 JOB_NAME = os.path.basename(os.path.normpath(JOB_TREE))
